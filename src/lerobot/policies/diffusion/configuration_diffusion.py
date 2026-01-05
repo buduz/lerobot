@@ -123,7 +123,7 @@ class DiffusionConfig(PreTrainedConfig):
     # Architecture / modeling.
     # Vision backbone.
     vision_backbone: str = "resnet18"
-    crop_shape: tuple[int, int] | None = (84, 84)
+    crop_shape: tuple[int, int] | None = (243, 243)
     crop_is_random: bool = True
     pretrained_backbone_weights: str | None = None
     use_group_norm: bool = True
@@ -152,12 +152,12 @@ class DiffusionConfig(PreTrainedConfig):
     do_mask_loss_for_padding: bool = False
 
     # Training presets
-    optimizer_lr: float = 1e-4
+    optimizer_lr: float = 3e-4
     optimizer_betas: tuple = (0.95, 0.999)
     optimizer_eps: float = 1e-8
     optimizer_weight_decay: float = 1e-6
     scheduler_name: str = "cosine"
-    scheduler_warmup_steps: int = 500
+    scheduler_warmup_steps: int = 1000
 
     def __post_init__(self):
         super().__post_init__()
